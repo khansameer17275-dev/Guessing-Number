@@ -47,8 +47,10 @@ h1 {
   font-weight: 600;
   margin-bottom: 10px;
   /* Gradient Text */
-  background: linear-gradient(to right, #00f2fe, #4facfe);
-  -webkit-background-clip: text;
+  background: linear-gradient(to right, #00f2fe, #4facfe);  
+  background-clip: text;
+  -webkit-background-clip: text;  /* CHROME SAFARI */
+  color: transparent;
   -webkit-text-fill-color: transparent;
 }
 
