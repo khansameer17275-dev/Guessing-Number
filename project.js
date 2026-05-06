@@ -45,12 +45,12 @@ function validateGuess(guess) {
 
 function checkGuess(guess) {
   if (guess === randomNumber) {
-    displayMessage(`You guessed it right`);
+    displayMessage(`You guessed it right`, 'right');
     endGame();
   } else if (guess < randomNumber) {
-    displayMessage(`Number is TOOO low`);
+    displayMessage(`Number is TOOO low`, 'low');
   } else if (guess > randomNumber) {
-    displayMessage(`Number is TOOO High`);
+    displayMessage(`Number is TOOO High`, 'high');
   }
 }
 
@@ -61,8 +61,12 @@ function displayGuess(guess) {
   remaining.innerHTML = `${11 - numGuess} `;
 }
 
-function displayMessage(message) {
-  lowOrHi.innerHTML = `<h2>${message}</h2>`;
+function displayMessage(message, status = '') {
+  if (status) {
+    lowOrHi.innerHTML = `<h2 class="anim-${status}">${message}</h2>`;
+  } else {
+    lowOrHi.innerHTML = `<h2>${message}</h2>`;
+  }
 }
 
 function endGame() {
